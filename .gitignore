@@ -1,0 +1,35 @@
+# Local .terraform directories and plugin binaries
+**/.terraform/*
+
+# State files - may contain secrets, never commit
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Variable files that commonly hold secrets
+*.tfvars
+*.tfvars.json
+
+# CLI config and override files
+.terraformrc
+terraform.rc
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ansible runtime artifacts and locally installed collections
+*.retry
+.ansible/
+ansible/collections/
+
+# Local Ansible secrets (use Ansible Vault for encrypted values that should be committed)
+ansible/.vault_password
+ansible/inventory/group_vars/all/secrets.yml
+ansible/inventory/host_vars/*/secrets.yml
+
+# Operating-system metadata
+.DS_Store
