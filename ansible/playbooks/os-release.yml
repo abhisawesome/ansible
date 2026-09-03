@@ -1,0 +1,15 @@
+---
+- name: Display operating system release information
+  hosts: webservers
+  # Ubuntu containers do not include Python yet; raw can run without it.
+  gather_facts: false
+
+  tasks:
+    - name: Read /etc/os-release
+      ansible.builtin.raw: cat /etc/os-release
+      register: os_release
+      changed_when: false
+
+    - name: Display OS release
+      ansible.builtin.debug:
+        var: os_release.stdout_lines
