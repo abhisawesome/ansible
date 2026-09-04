@@ -1,0 +1,15 @@
+- name: Install nginx
+  hosts: webservers
+  tasks:
+    - name: "Install nginx on webservers"
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+    - name: "verify nginx"
+      ansible.builtin.command: nginx -v
+      register: nginx_version
+      changed_when: false
+
+    - name : "Display information"
+      ansible.builtin.debug:
+        msg: "nginx version: {{nginx_version}}"
